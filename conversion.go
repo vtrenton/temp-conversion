@@ -11,7 +11,8 @@ func main() {
   //DEBUG
   //fmt.Println(len(os.Args))
 
-  // if osargs are of length less than 1 prompt the user
+  // if osargs are of length less than one
+  // let the user know how to use the program andexit
   // note that arg 0 is the name of the program - so 2 is the magic num of len
   if len(os.Args) < 2 {
     fmt.Println("Welcome to the fahrenheit coversion program!")
@@ -23,8 +24,8 @@ func main() {
     os.Exit(1)
   // else if os args are greater than one - use only value at arg 1 and give user a message
   } else if len(os.Args) > 2 {
-      fmt.Println("one argument at a time pls")
-      fmt.Printf("only producing output for %s\n", os.Args[1])
+      fmt.Println("One argument at a time pls")
+      fmt.Printf("Only producing output for %s\n", os.Args[1])
   }
 
   // Attempt to convert the user provided string to a float64
@@ -32,12 +33,19 @@ func main() {
   f, err := strconv.ParseFloat(os.Args[1], 64)
   if err != nil {
     fmt.Println("That doesn't seem like a number to me")
-    os.Exit(1)
+    fmt.Println("I'll just take this input and convert the first char to it's decimal value :^)")
+    // lol nested type conversion
+    f = float64(os.Args[1][0])
+    fmt.Printf("your input temp is now %.0ff\n", f)
   }
 
   // validate number is not less than -459.67f, -273.15c or absoute zero and not greater than a trillion degress
-  if f <= -459.68 || f >= 1000000000000 {
-    fmt.Printf("Out of range")
+  if f < -459.67 {
+    fmt.Println("Below absolute zero")
+    os.Exit(1)
+  } else if f >= 1000000000000 {
+    fmt.Printf("too hot for this program to handle!")
+    os.Exit(0)
   }
 
   // DEBUG
@@ -45,12 +53,12 @@ func main() {
   
   c, k := convert(f)
   
-  // give us some output
+  // Print the Celsius and Kelvin results
   fmt.Printf("Celsuis: %.2fc\n", c)
-  fmt.Printf("Kelvin: %.2fc\n", k)
+  fmt.Printf("Kelvin: %.2fk\n", k)
 }
 
-// takes in
+// takes in f which is the user input feirenheit value
 func convert (f float64) (float64, float64) {
   c := (f - 32) * 5/9
   k := c + 273.15
