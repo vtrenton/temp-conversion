@@ -22,3 +22,6 @@ go.work
 
 # vim swp files
 *.swp
+
+# build directory
+bin/**
