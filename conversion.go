@@ -15,11 +15,11 @@ func main() {
   // note that arg 0 is the name of the program - so 2 is the magic num of len
   if len(os.Args) < 2 {
     fmt.Println("Welcome to the fahrenheit coversion program!")
-    fmt.Println("This binary requires you run it with a single arguement (only one for now)")
+    fmt.Println("This binary requires you run it with a single argument (only one for now)")
     fmt.Println("This argument needs to be a type float64 value (signed)")
     fmt.Println("The argument is the value you want to convert in fahrenheit")
     fmt.Println("The program will output the respective values in Celsius and Kelvin")
-    fmt.Println("Please run this program with only one arguement to begin")
+    fmt.Println("Please run this program with only one argument to begin")
     os.Exit(1)
   // else if os args are greater than one - use only value at arg 1 and give user a message
   } else if len(os.Args) > 2 {
