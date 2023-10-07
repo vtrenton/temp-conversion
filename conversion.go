@@ -7,9 +7,6 @@ import (
 )
 
 func main() {
-  //DEBUG
-  //fmt.Println(len(os.Args))
-
   // if osargs are of length less than one
   // let the user know how to use the program andexit
   // note that arg 0 is the name of the program - so 2 is the magic num of len
@@ -47,9 +44,6 @@ func main() {
     os.Exit(0)
   }
 
-  // DEBUG
-  //fmt.Printf("%.2f\n", f)
-  
   c, k := convert(f)
   
   // Print the Celsius and Kelvin results
