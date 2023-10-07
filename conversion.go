@@ -3,7 +3,6 @@ package main
 import (
   "fmt"
   "os"
-//  "math"
   "strconv"
 )
 
@@ -41,10 +40,10 @@ func main() {
 
   // validate number is not less than -459.67f, -273.15c or absoute zero and not greater than a trillion degress
   if f < -459.67 {
-    fmt.Println("Below absolute zero")
-    os.Exit(1)
+    fmt.Println("Below absolute zero 🥶")
+    os.Exit(0)
   } else if f >= 1000000000000 {
-    fmt.Printf("too hot for this program to handle!")
+    fmt.Printf("Too hot for this program to handle! 🫠")
     os.Exit(0)
   }
 
@@ -58,7 +57,7 @@ func main() {
   fmt.Printf("Kelvin: %.2fk\n", k)
 }
 
-// takes in f which is the user input feirenheit value
+// takes in f which is the user input fahrenheit value
 func convert (f float64) (float64, float64) {
   c := (f - 32) * 5/9
   k := c + 273.15
