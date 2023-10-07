@@ -25,7 +25,8 @@ func main() {
   }
 
   // Attempt to convert the user provided string to a float64
-  // if there is an error catch and exit 1
+  // picked float64 for precision
+  // If there is an error catch and exit 1
   f, err := strconv.ParseFloat(os.Args[1], 64)
   if err != nil {
     fmt.Println("That doesn't seem like a number to me")
@@ -52,6 +53,7 @@ func main() {
 }
 
 // takes in f which is the user input fahrenheit value
+// returns the celsius and kelvin value as float64 values
 func convert (f float64) (float64, float64) {
   c := (f - 32) * 5/9
   k := c + 273.15
