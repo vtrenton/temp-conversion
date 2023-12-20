@@ -53,6 +53,14 @@ func validate_input(input_args []string) float64 {
 func convert(f float64) (float64, float64) {
 	c := (f - 32) * 5 / 9
 	k := c + 273.15
+
+	// kelvin values should never go below zero
+	// we should never hit this value since we are checking the fahr value
+	// This is additional layer of protection - defensive coding
+	if k < 0.0 {
+		k = 0.0
+	}
+
 	return c, k
 }
 
